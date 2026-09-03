@@ -1,5 +1,4 @@
 ## Unreleased
-- Sandbox tools: `bash_session()`, `text_editor()`, `exec_remote()` and sandboxed MCP servers now run as the sandbox's default user instead of always as root; the three tools accept `user="root"` to restore the old behavior.
 
 - Grok: Oversized prompts now return `stop_reason="model_length"` instead of failing with a generation error under xAI's current context-overflow wording.
 - Eval Log: Sample summaries now keep `Score.reason`, so an explicit reason is no longer dropped (and a stale `metadata["unscored_reason"]` cannot replace it).
@@ -14,6 +13,7 @@
 - Control Channel: `inspect ctl task list` rows now report a pending graceful resolution (`resolving`: drain/score/error), and cancelled samples of a task whose retry was suppressed or abandoned no longer render as `pending`.
 - Bugfix: Transcript markdown now reliably escapes HTML outside code blocks, so unusual code fences or line separators can no longer inject raw HTML into the rendered transcript.
 - Sandbox Tools: Injection now fails with a clear error when the tools directory already exists but is not a private directory owned by the tools user (an earlier rootless install is tightened to 0700 and reused).
+- Sandbox tools: `bash_session()`, `text_editor()`, `exec_remote()` and sandboxed MCP servers now run as the sandbox's default user instead of always as root; the three tools accept `user="root"` to restore the old behavior.
 
 ## 0.3.262 (02 September 2026)
 
